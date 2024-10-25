@@ -21,17 +21,16 @@ Technologies Used
 
 
 # Project Screenshots
-
-![Checkout Page](images/checkout.png)
-![Cart Page](images/cartpage.png)
-![Food Page](images/foodpage.png)
 ![Home Page](images/homepage.png)
+![Food Page](images/foodpage.png)
+![Cart Page](images/cartpage.png)
+![Checkout Page](images/checkout.png)
 
-# Video Preview
 
-<a href="https://youtu.be/BF_NGxqkAS8">
-    <img src="https://i.sstatic.net/Vp2cE.png" alt="Watch the video" width="600" height="400" />
-</a>
+
+
+[Watch the Video Preview](https://youtu.be/BF_NGxqkAS8)
+
 
 
 
