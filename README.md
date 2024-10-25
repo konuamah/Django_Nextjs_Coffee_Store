@@ -29,7 +29,9 @@ Technologies Used
 
 # Video Preview
 
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/BF_NGxqkAS8)
+<a href="https://youtu.be/BF_NGxqkAS8">
+    <img src="https://i.sstatic.net/Vp2cE.png" alt="Watch the video" width="600" height="400" />
+</a>
 
 
 
