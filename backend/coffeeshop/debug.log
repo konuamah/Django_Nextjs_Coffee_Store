@@ -1,0 +1,9 @@
+INFO 2024-10-23 10:53:06,329 autoreload 11020 8720 Watching for file changes with StatReloader
+INFO 2024-10-23 10:53:13,657 views 11020 152 Cart detail request received - User: AnonymousUser
+DEBUG 2024-10-23 10:53:13,658 views 11020 152 Cart details retrieved - User: AnonymousUser, Items count: 0, Total: 0
+INFO 2024-10-23 10:53:18,006 views 11020 2324 Cart add request received - User: AnonymousUser, Product ID: 3
+DEBUG 2024-10-23 10:53:18,010 views 11020 2324 Adding to cart - Product: 3, Quantity: 4, Override: False
+INFO 2024-10-23 10:53:18,011 views 11020 2324 Product successfully added to cart - User: AnonymousUser, Product: 3, New cart total: 84.00
+INFO 2024-10-23 10:54:14,579 autoreload 11020 8720 C:\Users\KELVIN\Desktop\projects\coffee\coffee_backend\coffeeshop\cart\views.py changed, reloading.
+INFO 2024-10-23 10:54:16,316 autoreload 12784 3544 Watching for file changes with StatReloader
+INFO 2024-10-23 10:54:41,905 autoreload 12784 3544 C:\Users\KELVIN\Desktop\projects\coffee\coffee_backend\coffeeshop\coffeeshop\settings.py changed, reloading.
