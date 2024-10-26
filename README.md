@@ -4,7 +4,9 @@ Features
     User-Friendly Interface: Built with Next.js, the application offers a modern, responsive design that enhances the user experience across devices.
 
     Dynamic Menu: The menu is fetched from a Django REST API, allowing users to browse, filter, and explore various coffee products and categories easily.
-
+    
+    The administrative features include the ability for users to add or remove products, manage categories, and track orders.
+    
     Shopping Cart Functionality: Users can effortlessly add items to their cart, view their selections, and manage quantities before proceeding to checkout.
 
     Secure Checkout Process: Integrated order form for users to input their personal information, review their order details, and confirm purchases securely. The application handles order submissions and confirmations smoothly.
