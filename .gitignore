@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Django specific files
+db.sqlite3
+media/
+
+# Node.js specific files
+node_modules/
+.next/
+out/
+
+# Build artifacts
+dist/
+build/
+
+# Static and media files
+staticfiles/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+
+# Git Large File Storage (LFS)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.tar
+*.gz
