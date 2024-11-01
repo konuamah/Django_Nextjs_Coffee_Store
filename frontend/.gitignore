@@ -1,1 +1,33 @@
-node_modules
+# Node.js specific files
+node_modules/
+.next/
+out/
+
+# Build artifacts
+dist/
+build/
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
