@@ -1,33 +1,48 @@
-# Node.js specific files
-node_modules/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
 .next/
-out/
 
-# Build artifacts
-dist/
-build/
+# production
+/build
 
-# Package manager lock files
-package-lock.json
-yarn.lock
-
-# OS generated files
+# misc
 .DS_Store
-Thumbs.db
-ehthumbs.db
-Icon?
+*.pem
 
-# IDE and editor specific files
-.vscode/
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
 .idea/
+.vscode/
 *.swp
 *.swo
 
-# Log files
-*.log
-
-# Environment variables
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Cache
+.cache/
+.npm/

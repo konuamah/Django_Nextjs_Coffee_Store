@@ -1,7 +1,6 @@
 // components/checkout/OrderForm.tsx
-'use client';
-import React, { useState } from 'react';
-import { useCart } from '../context/CartContext';
+import React from 'react';
+
 
 interface CheckoutFormData {
     first_name: string;

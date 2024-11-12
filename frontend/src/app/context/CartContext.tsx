@@ -212,6 +212,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     useEffect(() => {
         fetchCart();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

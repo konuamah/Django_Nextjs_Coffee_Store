@@ -1,4 +1,4 @@
-// File: C:\Users\KELVIN\Desktop\projects\coffee\frontend\src\app\menu\cart\checkout\page.tsx
+// File: /app/src/app/menu/cart/checkout/page.tsx
 import * as entry from '../../../../../../src/app/menu/cart/checkout/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

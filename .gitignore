@@ -1,61 +1,17 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-
-# Log files
-*.log
-
-# Environment variables
+# Environment files
 .env
+.env.*
+*.env
 
-# Django specific files
-db.sqlite3
-media/
-*.pot
-*.pyc
-*.pdb
-
-# Node.js specific files
-node_modules/
-.next/
-out/
-
-# Build artifacts
-dist/
-build/
-
-# Static and media files
-staticfiles/
-static/
-media/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Icon?
-
-# Virtual environment
-venv/
-.env/
-
-# Package manager lock files
-package-lock.json
-yarn.lock
-
-# IDE and editor specific files
+# Editor/IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Git Large File Storage (LFS)
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.zip
-*.tar
-*.gz
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml

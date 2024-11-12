@@ -1,6 +1,6 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -9,72 +9,96 @@ const navigation = [
   { name: 'Contact Us', href: '#', current: false },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-lg shadow-lg">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button */}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
-            </DisclosureButton>
+          {/* Logo and Title */}
+          <div className="flex items-center">
+            <Image
+              alt="Your Company"
+              src="/api/placeholder/40/40"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <span className="ml-3 text-lg font-semibold text-gray-800">Bean Scene</span>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch">
-            <div className="flex flex-shrink-0 items-center pr-24">
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
-              />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex justify-center space-x-4">
-                {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} passHref>
-                    <span
-                      aria-current={item.current ? 'page' : undefined}
-                      className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-700 hover:text-white',
-                        'rounded-md px-3 py-2 text-sm md:text-base lg:text-lg font-medium'
-                      )}
-                    >
-                      {item.name}
-                    </span>
-                  </Link>
-                ))}
+
+          {/* Desktop Menu */}
+          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <span
+                  aria-current={item.current ? 'page' : undefined}
+                  className={classNames(
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-800 hover:text-white transition-all duration-300',
+                    'rounded-lg px-3 py-2 text-sm font-medium cursor-pointer'
+                  )}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex sm:hidden">
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+            >
+              <div className="relative w-6 h-6">
+                <span
+                  className={`absolute block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1.5'
+                  }`}
+                />
+                <span
+                  className={`absolute block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <span
+                  className={`absolute block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1.5'
+                  }`}
+                />
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </div>
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium'
-              )}
-            >
-              <Link href={item.href} passHref>
-                <span>{item.name}</span>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="sm:hidden">
+          <div className="space-y-1 px-4 pb-3 pt-2">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <span
+                  aria-current={item.current ? 'page' : undefined}
+                  className={classNames(
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-800 hover:text-white transition-all duration-300',
+                    'block rounded-lg px-3 py-2 text-base font-medium cursor-pointer'
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </span>
               </Link>
-            </DisclosureButton>
-          ))}
+            ))}
+          </div>
         </div>
-      </DisclosurePanel>
-    </Disclosure>
+      )}
+    </nav>
   );
 }

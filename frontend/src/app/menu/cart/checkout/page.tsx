@@ -6,12 +6,27 @@ import { useCart } from '../../../context/CartContext';
 import OrderForm from '@/app/components/OrderForm';
 import OrderSummary from '@/app/components/OrderSummary';
 
-const CheckoutPage = () => {
+// Interface for form data
+interface FormData {
+    first_name: string;
+    last_name: string;
+    email: string;
+    address: string;
+    city: string;
+}
+
+// Interface for order data
+interface OrderData {
+    order_id: string;
+    [key: string]: unknown; // Allow other unknown properties with 'unknown' type
+}
+
+const CheckoutPage: React.FC = () => {
     const { cart, cartTotal, fetchCart } = useCart(); // Cart context values
-    const [isSubmitting, setIsSubmitting] = useState(false); // Submission loading state
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // Submission loading state
     const [error, setError] = useState<string | null>(null); // Error message state
     const [csrfToken, setCsrfToken] = useState<string>(''); // CSRF token for secure requests
-    const [formData, setFormData] = useState({ // Form data state
+    const [formData, setFormData] = useState<FormData>({ // Form data state
         first_name: '',
         last_name: '',
         email: '',
@@ -19,7 +34,7 @@ const CheckoutPage = () => {
         city: ''
     });
     const [orderConfirmed, setOrderConfirmed] = useState<boolean>(false); // Order confirmation state
-    const [orderData, setOrderData] = useState<any>(null); // Order data state
+    const [orderData, setOrderData] = useState<OrderData | null>(null); // Order data state
 
     // Fetch CSRF token from cookies
     useEffect(() => {
@@ -42,7 +57,7 @@ const CheckoutPage = () => {
     }, []);
 
     // Handle form submission to create an order
-    const handleSubmit = async (formData: any, csrfToken: string) => {
+    const handleSubmit = async (formData: FormData, csrfToken: string) => {
         setIsSubmitting(true);
         setError(null);
 
@@ -69,7 +84,7 @@ const CheckoutPage = () => {
                 throw new Error(errorData.detail || 'Failed to create order');
             }
 
-            const data = await response.json();
+            const data: OrderData = await response.json();
             setOrderData(data); // Set the order data on successful submission
             setOrderConfirmed(true); // Set confirmation state to true
             await fetchCart(); // Refresh the cart
@@ -104,8 +119,8 @@ const CheckoutPage = () => {
                             <div className="text-2xl mr-2">☕</div>
                             <h2 className="text-xl font-serif text-green-800">Order Confirmed!</h2>
                         </div>
-                        <p className="text-green-700">Thank you for your order. We'll start brewing right away!</p>
-                        <p className="text-green-700 mt-2">Order ID: {orderData.order_id}</p>
+                        <p className="text-green-700">Thank you for your order. We will start brewing right away!</p>
+                        <p className="text-green-700 mt-2">Order ID: {orderData?.order_id}</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -121,6 +136,8 @@ const CheckoutPage = () => {
 
                         {/* Order Summary */}
                         <OrderSummary />
+                        <p className="text-gray-300">Total: ${cartTotal}</p>
+
                     </div>
                 )}
             </div>

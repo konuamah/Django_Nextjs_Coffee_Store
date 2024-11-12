@@ -1,0 +1,38 @@
+# Environment files
+.env
+.env.*
+*.env
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Development/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local development files
+local_settings.py
+db.sqlite3
+
+# Logs
+*.log
+
+# Media and static files (if served separately)
+media/
+static/

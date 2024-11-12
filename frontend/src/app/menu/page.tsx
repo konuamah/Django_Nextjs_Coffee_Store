@@ -22,7 +22,7 @@ interface FoodItem {
     available: boolean;
 }
 
-const MenuPage = () => {
+const MenuPage: React.FC = () => {
     const [foodItems, setFoodItems] = useState<FoodItem[]>([]); // State for food items
     const [categories, setCategories] = useState<Category[]>([]); // State for categories
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null); // Selected category for filtering
@@ -38,8 +38,10 @@ const MenuPage = () => {
                 if (!response.ok) throw new Error('Failed to fetch categories');
                 const data = await response.json();
                 setCategories(data); // Set categories state
-            } catch (error) {
-                setError(error.message); // Handle fetch error
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message); // Handle fetch error
+                }
             }
         };
 
@@ -60,8 +62,10 @@ const MenuPage = () => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 const data = await response.json();
                 setFoodItems(data); // Set food items state
-            } catch (error) {
-                setError(error.message); // Handle fetch error
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message); // Handle fetch error
+                }
             } finally {
                 setLoading(false); // Set loading state to false
             }
@@ -71,7 +75,7 @@ const MenuPage = () => {
     }, [selectedCategory]);
 
     // Calculate total items in the cart
-    const getTotalItemsInCart = () => {
+    const getTotalItemsInCart = (): number => {
         return cart.reduce((total, item) => total + item.quantity, 0);
     };
 

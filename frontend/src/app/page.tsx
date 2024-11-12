@@ -16,7 +16,6 @@ const backgrounds = [
 
 export default function Page() {
   const [currentBg, setCurrentBg] = useState(0); // State for tracking current background index
-  const [scrollPosition, setScrollPosition] = useState(0); // State for tracking scroll position
 
   useEffect(() => {
     // Change background image every 5 seconds
@@ -24,27 +23,26 @@ export default function Page() {
       setCurrentBg((prevBg) => (prevBg + 1) % backgrounds.length);
     }, 5000);
 
-    // Handle scroll position updates
-    const handleScroll = () => {
-      setScrollPosition(window.pageYOffset);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup function to clear timer and remove event listener
+    // Cleanup function to clear timer
     return () => {
       clearInterval(timer);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <>
+    <div 
+      style={{
+        backgroundImage: `url(${backgrounds[currentBg]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+      }}
+    >
       <Navbar />
       <HeroSection />
       <SustainableApproachSection />
       <VideoSection />
       <Footer />
-    </>
+    </div>
   );
 }

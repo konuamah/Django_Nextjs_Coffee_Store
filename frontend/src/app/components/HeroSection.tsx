@@ -1,6 +1,5 @@
-// src/components/HeroSection.js
 import React, { useEffect, useState } from 'react';
-import StarIcon from './StarIcon';
+import Image from 'next/image';
 
 const backgrounds = [
   "/interior3.jpg",
@@ -32,27 +31,37 @@ const HeroSection = () => {
   return (
     <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden">
       {backgrounds.map((bg, index) => (
-        <img
+        <div
           key={bg}
-          src={bg}
-          alt={`Coffee Background ${index + 1}`}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+          className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ${
             index === currentBg ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
             transform: `translateY(${scrollPosition * 0.5}px)`,
           }}
-        />
+        >
+          <Image
+            src={bg}
+            alt={`Coffee Background ${index + 1}`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       ))}
-      <img 
-        src="/overlay.png"
-        alt="Overlay" 
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ 
+      <div
+        className="absolute inset-0 h-full w-full"
+        style={{
           mixBlendMode: 'multiply',
           transform: `translateY(${scrollPosition * 0.3}px)`,
         }}
-      />
+      >
+        <Image
+          src="/overlay.png"
+          alt="Overlay"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <div 
         className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
         style={{

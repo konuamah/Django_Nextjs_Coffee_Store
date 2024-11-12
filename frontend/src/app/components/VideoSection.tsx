@@ -1,24 +1,25 @@
 import React from 'react';
+import Image from 'next/image';
 
 const categories = [
     {
       title: "Hot Coffee",
-      image: "hotcoffee.jpg",
+      image: "/hotcoffee.jpg",
       description: "Classic brews & espresso drinks"
     },
     {
       title: "Iced Coffee",
-      image: "icedcoffee.jpg",
+      image: "/icedcoffee.jpg",
       description: "Refreshing cold coffee options"
     },
     {
       title: "Non-Coffee Drinks",
-      image: "noncoffee.jpg",
+      image: "/noncoffee.jpg",
       description: "Smoothies & specialty beverages"
     },
     {
       title: "Tea Infusion",
-      image: "teainfusion.jpg",
+      image: "/teainfusion.jpg",
       description: "Aromatic tea selections"
     }
   ];
@@ -55,11 +56,16 @@ const VideoSection = () => {
                 {/* Testimonial Section */}
                 <div className="mt-8 bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src="testimonialphoto.jpg"
-                      alt="Food Critic"
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+        
+
+<Image
+    src="/testimonialphoto.jpg"
+    alt="Food Critic"
+    width={64} // Set the actual width of the image
+    height={64} // Set the actual height of the image
+    className="w-16 h-16 rounded-full object-cover" // Maintain the rounded, cover style
+/>
+
                     <div>
                       <h3 className="text-white font-semibold text-lg">Sarah Matthews</h3>
                       <p className="text-white text-sm opacity-75">Food & Beverage Critic, Culinary Globe</p>
@@ -71,8 +77,9 @@ const VideoSection = () => {
                     ))}
                   </div>
                   <p className="text-white italic">
-                    "Bean Scene's commitment to sustainable coffee isn't just admirable—it's delicious. Their signature blend offers a perfect balance of boldness and subtle notes, while their innovative approach to eco-friendly practices sets a new standard in the industry. A must-visit for any serious coffee enthusiast."
-                  </p>
+    &quot;Bean Scene&apos;s commitment to sustainable coffee isn&apos;t just admirable—it&apos;s delicious. Their signature blend offers a perfect balance of boldness and subtle notes, while their innovative approach to eco-friendly practices sets a new standard in the industry. A must-visit for any serious coffee enthusiast.&quot;
+</p>
+
                 </div>
               </div>
 
@@ -91,12 +98,17 @@ const VideoSection = () => {
                     key={index}
                     className="group relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
                   >
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="w-full h-64 object-cover"
-                      loading="lazy"
-                    />
+         
+
+<Image
+    src={category.image}
+    alt={category.title}
+    width={400} // Adjust the width based on your layout
+    height={256} // Adjust the height based on your layout
+    className="w-full h-64 object-cover" // Custom styling
+    loading="lazy" // Optional, Next.js images are lazy-loaded by default
+/>
+
                     <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-50">
                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                         <h3 className="text-xl font-semibold mb-1">{category.title}</h3>

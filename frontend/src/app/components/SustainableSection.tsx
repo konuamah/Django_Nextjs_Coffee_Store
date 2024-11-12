@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import Image from 'next/image';
 const SustainableApproachSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -96,11 +96,13 @@ const SustainableApproachSection = () => {
               </div>
             </div>
             <div className={`w-full lg:w-1/2 flex justify-center opacity-0 ${isVisible ? 'slide-in-right' : ''}`}>
-              <img 
-                className="w-full max-w-md object-cover hover:scale-105 transform transition-all duration-300"
-                alt="Coffee"
-                src="/coffeebag.png"
-              />
+            <Image 
+    className="w-full max-w-md object-cover hover:scale-105 transform transition-all duration-300"
+    alt="Coffee"
+    src="/coffeebag.png"
+    width={400} // Replace with the actual width of your image
+    height={400} // Replace with the actual height of your image
+/>
             </div>
           </div>
         </div>
