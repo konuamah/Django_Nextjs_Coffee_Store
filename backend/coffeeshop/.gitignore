@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python
 __pycache__/
 *.py[cod]
@@ -50,3 +51,68 @@ htmlcov/
 .vscode/
 *.swp
 *.swo
+=======
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.*.local
+
+# Database files
+db.sqlite3
+*.sqlite3
+
+# Django specific files
+media/
+staticfiles/
+*.pot
+*.pyc
+*.pdb
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# Virtual environment
+venv/
+.env/
+
+# Package manager lock files
+pipfile.lock
+Pipfile
+
+# Coverage reports
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Django migrations (if you want to ignore migration files)
+migrations/*
+!migrations/__init__.py
+
+# Git Large File Storage (LFS) - if applicable
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.tar
+*.gz
+>>>>>>> f558906cbda4b90d550d3312b22bfe15457edafd
